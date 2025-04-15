@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #4a6bff;
+    --primary-purple: #9b59b6;
+    --dark-blue: #1a1a2e;
+    --darker-blue: #16213e;
+    --black: #0f0f1a;
+    --white: #f0f0f5;
+    --gray: #3a3a4a;
+    --light-gray: #7a7a8c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Star background animation */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.stars {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.5"/></svg>') repeat;
+    animation: moveStars 100s linear infinite;
+}
+
+.stars2 {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="white" opacity="0.3"/></svg>') repeat;
+    animation: moveStars 150s linear infinite;
+}
+
+.stars3 {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.25" fill="white" opacity="0.1"/></svg>') repeat;
+    animation: moveStars 200s linear infinite;
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0) translateX(0); }
+    to { transform: translateY(-1000px) translateX(-500px); }
+}
+
+.blue {
+    color: var(--primary-blue);
+}
+
+.purple {
+    color: var(--primary-purple);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(74, 107, 255, 0.3);
+}
+
+.tagline {
+    color: var(--light-gray);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.input-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.5s ease-out;
+}
+
+input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--darker-blue);
+    color: var(--white);
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-blue), 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blue-btn {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.blue-btn:hover {
+    background-color: #3a5bef;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 107, 255, 0.3);
+}
+
+.purple-btn {
+    background-color: var(--primary-purple);
+    color: white;
+}
+
+.purple-btn:hover {
+    background-color: #8a4da8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3);
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--light-gray);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: white;
+    border-color: var(--primary-purple);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+}
+
+#taskList {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.task-item {
+    background-color: var(--darker-blue);
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-blue);
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--light-gray);
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn, .delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--light-gray);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.3rem;
+    border-radius: 50%;
+}
+
+.edit-btn:hover {
+    color: var(--primary-blue);
+    background-color: rgba(74, 107, 255, 0.1);
+}
+
+.delete-btn:hover {
+    color: #ff4757;
+    background-color: rgba(255, 71, 87, 0.1);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .input-container {
+        flex-direction: column;
+    }
+    
+    button {
+        justify-content: center;
+    }
+}
